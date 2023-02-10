@@ -33,7 +33,7 @@ export class App extends Component {
 
     return (
       <div className={css.container}>
-        <Section title="Please leave feedback">
+        <Section title="Leave feedback, please. ">
           <FeedbackOptions
             options={options}
             onLeaveFeedback={this.onLeaveFeedback}
@@ -49,7 +49,7 @@ export class App extends Component {
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
-            <Notification message="There is no feedback" />
+            <Notification message="There is no feedbacks, yet:)" />
           )}
         </Section>
       </div>
