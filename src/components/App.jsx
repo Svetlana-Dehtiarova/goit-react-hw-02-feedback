@@ -30,10 +30,10 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
-
+    console.log(options);
     return (
       <div className={css.container}>
-        <Section title="Leave feedback, please. ">
+        <Section title="Leave feedback, please.">
           <FeedbackOptions
             options={options}
             onLeaveFeedback={this.onLeaveFeedback}
