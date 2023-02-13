@@ -25,11 +25,13 @@ export class App extends Component {
   countPositiveFeedbackPercentage() {
     const { good } = this.state;
     const total = this.countTotalFeedback();
-    return Math.round((good / total) * 100);
+    return Math.round((good / total) * 100) || 0;
   }
   render() {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
+    const total = this.countTotalFeedback();
+
     console.log(options);
     return (
       <div className={css.container}>
@@ -40,12 +42,12 @@ export class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback() > 0 ? (
+          {total > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback()}
+              total={total}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
